@@ -1,9 +1,6 @@
 const mysql = require('mysql')
 require("dotenv").config()
 
-
-//console.log(process.env.MYSQL_PASSWORD);
-
 class Connection {
   constructor() {
     if (!this.pool) {
@@ -13,16 +10,14 @@ class Connection {
         host: '34.70.5.64',
         user: 'root',
         password: process.env.MYSQL_PASSWORD,
+        //console.log(process.env.MYSQL_PASSWORD);
         database: 'PollApp'
       })
-
       return this.pool
     }
-
     return this.pool
   }
 }
 
 const instance = new Connection()
-
 module.exports = instance;
